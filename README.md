@@ -1,2 +1,0 @@
-# epam
-QA education
