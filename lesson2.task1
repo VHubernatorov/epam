@@ -1,0 +1,21 @@
+package com.epam.lesson2;
+
+import java.util.Scanner;
+
+import static java.lang.String.valueOf;
+
+public class Home1 {
+    public static void main(String[] args) {
+        System.out.println("Please enter 3 digit`s number");
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+        int ff = num % 10;
+        int ss = (num % 100 - ff) / 10;
+        int tt = num / 100;
+        String str = valueOf(ff) + valueOf(ss) + valueOf(tt);
+        int num2 = Integer.parseInt(str);
+        System.out.println("Reversed number -->> " + num2);
+        System.out.println("Difference bethwin numbers -- >> " + (num - num2));
+
+    }
+}
