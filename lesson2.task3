@@ -1,0 +1,17 @@
+package com.epam.lesson2;
+
+import java.util.Scanner;
+
+public class Home3 {
+    public static void main(String[] args) {
+        System.out.print("Please enter deposit number -->> ");
+        Scanner sc = new Scanner(System.in);
+        int deposit = sc.nextInt();
+        System.out.print("Please enter percents per year -->> ");
+        int percents = sc.nextInt();
+        System.out.print("Please enter period in month`s -->> ");
+        int period = sc.nextInt();
+        float result = (((deposit / 100) * percents) / 12) * period;
+        System.out.println("Money for " + period + " months will be " + result);
+    }
+}
