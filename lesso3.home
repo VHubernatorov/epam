@@ -1,0 +1,140 @@
+package com.epam.lesso3;
+
+public class Home {
+    public static void main(String[] args) {
+        System.out.println("* * * * A case * * * *");
+        int iterator = 0;
+        int temp = 10;
+        while (iterator != 22){
+            if (iterator <= 10){
+                int printLine = 0;
+                while (printLine != iterator){
+                    System.out.print(" *");
+                    printLine++;
+                }
+            } else {
+
+                int printLine = temp;
+
+                while (printLine  >= 0){
+                    System.out.print(" *");
+                    printLine--;
+                    }
+                temp--;
+            }
+            System.out.println();
+            iterator++;
+        }
+        System.out.println();
+        System.out.println(" * * * * B case * * * * ");
+        int iter2=2;
+        while(iter2 > 0) {
+            int iterator2 = 5;
+            int blankLine = 10;
+            int stringLine2 = 1;
+            int blankLineTemp;
+            int stringLineTemp;
+            while(iterator2 > 0){
+                int blank = 10;
+                blankLineTemp = blankLine;
+                stringLineTemp = stringLine2;
+                while (blank > 0){
+                    if (blankLineTemp > stringLineTemp){
+                        System.out.print(" ");
+                        blankLineTemp--;
+                    } else {
+                        System.out.print(" *");
+                        stringLineTemp++;
+                    }
+                    blank--;
+                }
+                blankLine--;
+                stringLine2++;
+                iterator2--;
+                System.out.println();
+            }
+            iter2--;
+        }
+        System.out.println();
+        System.out.println(" * * * * C case * * * * ");
+        int iter = 10;
+        int blank = 1, blankTemp;
+        int str = 9, strTemp;
+        while (iter > 0){
+            blankTemp = 1;
+            strTemp = str;
+            while(blankTemp > 0 && blankTemp <= blank){
+                System.out.print("  ");
+                blankTemp++;
+            }
+            while(strTemp > 0 && strTemp <= str){
+                System.out.print(" *");
+                strTemp--;
+            }
+            str--;
+            blank++;
+            System.out.println();
+            iter--;
+        }
+        System.out.println(" * * * * D case * * * * ");
+        int iter3 = 10;
+        int blank2 = 1, blankTemp2;
+        int str2 = 9, strTemp2;
+        while (iter3 > 0){
+            blankTemp2 = 1;
+            strTemp2 = str2;
+            while(strTemp2 > 0 && strTemp2 <= str2){
+                System.out.print("  ");
+                strTemp2--;
+            }
+            while(blankTemp2 > 0 && blankTemp2 <= blank2){
+                System.out.print(" *");
+                blankTemp2++;
+            }
+            str2--;
+            blank2++;
+            System.out.println();
+            iter3--;
+        }
+        System.out.println(" * * * * E case * * * * ");
+         iter3 = 10;
+         blank2 = 1;
+         str2 = 9;
+        while (iter3 > 0){
+            blankTemp2 = 1;
+            strTemp2 = str2;
+            while(strTemp2 > 0 && strTemp2 <= str2){
+                System.out.print("  ");
+                strTemp2--;
+            }
+            while(blankTemp2 > 0 && blankTemp2 <= blank2){
+                System.out.print(" *");
+                blankTemp2++;
+            }
+            str2--;
+            blank2++;
+            System.out.println();
+            iter3--;
+        }
+        iter = 10;
+        blank = 1;
+        str = 9;
+        while (iter > 0){
+            blankTemp = 1;
+            strTemp = str;
+            while(blankTemp > 0 && blankTemp <= blank){
+                System.out.print("  ");
+                blankTemp++;
+            }
+            while(strTemp > 0 && strTemp <= str){
+                System.out.print(" *");
+                strTemp--;
+            }
+            str--;
+            blank++;
+            System.out.println();
+            iter--;
+        }
+
+    }
+}
