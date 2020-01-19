@@ -1,0 +1,33 @@
+package com.epam.lesson4;
+
+import java.util.Scanner;
+
+public class Home5 {
+    public static void main(String[] args) {
+        System.out.println("Please enter sentence ");
+        Scanner sc = new Scanner(System.in);
+        String sentence = sc.nextLine();
+        System.out.println("Please enter word number ");
+        int wordNumber = sc.nextInt();
+        sentenceProcessing(sentence, wordNumber);
+    }
+
+    private static void sentenceProcessing(String sentence, int wordNumber) {
+        sentence = sentence.trim();
+        int iterator = wordNumber - 2;
+
+            if (sentence.isEmpty()){
+                System.out.println("Sentence error");
+            } else if (wordNumber == 1){
+                System.out.println("First letter of a " + wordNumber + " word- " + sentence.charAt(0));
+                     } else if (wordNumber == 2) {
+                            System.out.println("First letter of a " + wordNumber + " word- " + sentence.charAt(sentence.indexOf(' ')+1));
+                             } else {
+                                    while (iterator > 0){
+                                            sentence = sentence.replaceFirst(" ", "a");
+                                            iterator--;
+                                            }
+                                    System.out.println("First letter of a " + wordNumber + " word- " + sentence.charAt(sentence.indexOf(' ')+1));
+                                    }
+    }
+}
