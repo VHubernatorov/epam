@@ -1,0 +1,24 @@
+package com.epam.lesson4;
+
+import java.util.Scanner;
+import static sun.text.normalizer.UTF16.valueOf;
+
+public class Home1 {
+    public static void main(String[] args) {
+        System.out.println("Please enter a new string");
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        strUnique(str);
+    }
+
+    private static void strUnique(String str) {
+        System.out.println("This string consist of next unique symbols:");
+        int iterator = 65535;
+        while(iterator >=0 ){
+            if (str.contains(valueOf((char)iterator))){
+                System.out.print(" "+ valueOf((char)iterator) + ",");
+            }
+            iterator--;
+        }
+    }
+}
