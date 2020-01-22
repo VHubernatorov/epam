@@ -1,0 +1,27 @@
+package com.epam.lesson4;
+
+import java.util.Scanner;
+
+public class Home3 {
+    public static void main(String[] args) {
+        System.out.println("Please enter integer number");
+        Scanner sc = new Scanner(System.in);
+        int number = sc.nextInt();
+        numberToString(number);
+
+    }
+
+    private static void numberToString(int number) {
+        String str = String.valueOf(number);
+        String result;
+        char firstNumber = str.charAt(str.length()-1);
+        char secondNumber;
+        if (str.length() == 1) {
+           secondNumber = '0';
+        } else {
+            secondNumber = str.charAt(str.length() - 2);
+        }
+        result = String.valueOf(firstNumber) + String.valueOf(secondNumber);
+        System.out.println("A processing of " + number + " will be -->> " + result);
+    }
+}

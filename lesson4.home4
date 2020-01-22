@@ -1,0 +1,23 @@
+package com.epam.lesson4;
+
+import java.util.Scanner;
+
+public class Home4 {
+    public static void main(String[] args) {
+        System.out.println("Please type Paskal`s triangle height - >> 1...9");
+        Scanner sc = new Scanner(System.in);
+        int trHeight = sc.nextInt();
+        trianglePrint(trHeight);
+    }
+    public static void trianglePrint(int n){
+        for (int i = 0; i < n; i++) {
+            int number  = 1;
+            System.out.format("%"+(n - i)*2+"s","");
+            for (int j = 0; j <= i; j++) {
+                System.out.printf("%4d", number);
+                number=number * (i - j) / (j + 1);
+            }
+            System.out.println("");
+            }
+        }
+}
