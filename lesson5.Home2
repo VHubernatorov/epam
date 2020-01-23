@@ -1,0 +1,49 @@
+package com.epam.lesson5;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Home2 {
+    public static void main(String[] args) {
+        System.out.println("Please enter length of array");
+        Scanner sc = new Scanner(System.in);
+        int length = sc.nextInt();
+        arrayDivider(length);
+    }
+
+    private static void arrayDivider(int length) {
+        int[] internalArray = new int[length];
+        int belowZero = 0;
+        int upperZero = 0;
+        for (int i = 0; i < length; i++) {
+            internalArray[i] = (int) (Math.random() * 100 - 50);
+            if (internalArray[i] < 0) {
+                belowZero++;
+            }
+            if (internalArray[i] > 0) {
+                upperZero++;
+            }
+        }
+        System.out.println("Internal array");
+        System.out.println(Arrays.toString(internalArray));
+
+        int[] posArray = new int[upperZero];
+        int indexPosetive = 0;
+        for (int i = 0; i < length; i++) {
+                if (internalArray[i] >= 0) {
+                    posArray[indexPosetive++] = internalArray[i];
+                    }
+        }
+        System.out.println("Positive array");
+        System.out.println(Arrays.toString(posArray));
+        int[] negArray = new int[belowZero];
+        int indexNegative = 0;
+        for (int i = 0; i < length; i++) {
+            if (internalArray[i] < 0){
+                negArray[indexNegative++] = internalArray[i];
+            }
+        }
+        System.out.println("Negative array");
+        System.out.println(Arrays.toString(negArray));
+    }
+}
