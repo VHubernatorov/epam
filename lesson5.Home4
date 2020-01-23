@@ -1,0 +1,43 @@
+package com.epam.lesson5;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Home4 {
+    public static void main(String[] args) {
+        System.out.println("Please enter length of first array");
+        Scanner sc = new Scanner(System.in);
+        int firstLength = sc.nextInt();
+        System.out.println("Please enter length of second array");
+        int secondLength = sc.nextInt();
+        System.out.println("First Array");
+        int[] firstArray = arrayFill(firstLength);
+        System.out.println("Second Array");
+        int[] secondArray = arrayFill(secondLength);
+        System.out.println("Result Array");
+        int[] resultArray = concatArray(firstArray, secondArray);
+        System.out.println(Arrays.toString(resultArray));
+    }
+
+    private static int[] concatArray(int[] firstArray, int[] secondArray) {
+        int[] result = new int[firstArray.length + secondArray.length];
+        int index = 0;
+        for (int i = 0; i < result.length; i++) {
+            if (i < firstArray.length){
+                result[i] = firstArray[i];
+            } else {
+                result[i] = secondArray [index++];
+            }
+        }
+        return result;
+    }
+
+    private static int[] arrayFill(int length) {
+        int[] result = new int[length];
+        for (int i = 0; i < length; i++) {
+            result[i] = (int) (Math.random() * 100);
+        }
+        System.out.println(Arrays.toString(result));
+        return result;
+    }
+}
