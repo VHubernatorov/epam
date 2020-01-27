@@ -1,0 +1,58 @@
+package com.epam.lesson6;
+
+public class Books {
+    private int arrayRange;
+    private Book[] books = new Book[] {
+      new Book(1, "White org", "Stiven King", "Home Land", 2014, 325, 452),
+      new Book(2, "HomeLander", "Ray Bradbery", "Home Land", 2010, 525, 352),
+      new Book(3, "MotherLand", "Nationality", "Nation", 2018, 873, 500),
+      new Book(4, "Home", "Boris Strugatsky", "Trinity", 2000, 173, 600)
+    };
+    public Books() {
+    }
+    public Book[] getBooks() {
+        return books;
+    }
+    public Book[] setArrayRange(int arrayRange){
+        Book[] books = new Book[arrayRange];
+        return books;
+    };
+    public int getArrayRange() {
+        return books.length;
+    }
+
+    public Book[] addBook(Book book){
+            Book [] books1 = new Book[books.length + 1];
+        System.arraycopy(books, 0, books1, 0, books1.length - 1);
+            book.setId(books[books.length - 1].getId() + 1);
+            books1[books1.length - 1] = book;
+            books = books1;
+        return books;
+    }
+    public void allBooks(){
+        for (Book book : books) {
+            book.view();
+        }
+    }
+
+    public Book[] setPercentPrice(int persent){
+        for (int i = 0; i < books.length; i++) {
+            books[i].setPrice(books[i].getPrice() + books[i].getPrice() * persent / 100);
+        }
+        return books;
+    }
+    public void byName(String authorName){
+        for (Book book : books) {
+            if (book.getAuthor().equals(authorName)) {
+                book.view();
+            }
+        }
+    }
+    public void booksAfterYear(int year){
+        for (int i = 0; i < books.length; i++) {
+            if (books[i].getYear() > year){
+                books[i].view();
+            }
+        }
+    }
+}
