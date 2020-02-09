@@ -1,0 +1,24 @@
+package com.epam.lesson6;
+
+public class Main {
+    public static void main(String[] args) {
+        Books books = new Books();
+        books.getBooks();
+        books.allBooks();
+        System.out.println("Add new book");
+        Book book = new Book(10, "Asgard", "My Self", "Home my", 2018, 358, 458);
+        books.addBook(book);
+        books.allBooks();
+        int persent = 15;
+        books.setPercentPrice(persent);
+        System.out.println("plus " + persent +"`s");
+        books.allBooks();
+        String author = "Stiven King";
+        System.out.println("Books with author " + author);
+        books.byName(author);
+        int year = 2013;
+        System.out.println("Books published after " + year);
+        books.booksAfterYear(year);
+
+    }
+}

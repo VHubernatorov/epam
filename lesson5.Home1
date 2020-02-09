@@ -1,0 +1,38 @@
+package com.epam.lesson5;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Home1 {
+    public static void main(String[] args) {
+        System.out.println("Please enter length of array");
+        Scanner sc = new Scanner(System.in);
+        int length = sc.nextInt();
+        int[] first = fillArray(length);
+        System.out.println("First array");
+        System.out.println(Arrays.toString(first));
+        int[] second = fillArray(length);
+        System.out.println("Second array");
+        System.out.println(Arrays.toString(second));
+
+        int[] result = fillArrays(first, second);
+        System.out.println("Result array");
+        System.out.println(Arrays.toString(result));
+    }
+
+    private static int[] fillArray(int length) {
+        int[] result = new int[length];
+        for (int i = 0; i < length; i++) {
+            result[i] = (int) (Math.random() * 100);
+        }
+        return result;
+    }
+        private static int[] fillArrays(int[] first, int[] second){
+            int[] results = new int[first.length];
+            for (int i = 0; i < first.length; i++) {
+                results[i] = first[i] + second[i];
+            }
+            return results;
+        }
+
+}

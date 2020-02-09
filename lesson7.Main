@@ -1,0 +1,49 @@
+package com.epam.lesson7;
+
+public class Main {
+    public static void main(String[] args) {
+        Shape[] shapes = {new Rectangle("red", 2, 3),
+                          new Rectangle("blue", 3, 4),
+                          new Rectangle("grey", 1, 4),
+                          new Rectangle("green", 3, 5),
+                          new Triangle("red", 2, 3, 4),
+                          new Triangle("black", 3, 4, 5),
+                          new Circle("yellow", 4),
+                          new Circle("pink", 3),
+                          new Circle("brawn", 5)};
+        System.out.println("All shapes");
+        reflectAllShapes(shapes);
+        double square = allSquare(shapes);
+        System.out.println("Area of all shapes are - >> " + square);
+        double rectangleSquare = oneTypeShapesquare("Rectangle" ,shapes);
+        System.out.println("Area of all rectanles are - >> " + rectangleSquare);
+        double trianglesSquare = oneTypeShapesquare("Triangle", shapes);
+        System.out.println("Area of all triangles are - >> " + trianglesSquare);
+        double circleSquare = oneTypeShapesquare("Circle", shapes);
+        System.out.println("Area of all circles are - >> " + circleSquare);
+    }
+
+    private static double oneTypeShapesquare(String str, Shape[] shapes) {
+        double result = 0;
+        for (Shape shape : shapes) {
+            if (shape.getClass().getSimpleName().equals(str)) {
+                result += shape.calcArea();
+            }
+        }
+        return result;
+    }
+
+    private static double allSquare(Shape[] shapes) {
+        double result = 0;
+        for (Shape shape : shapes) {
+            result += shape.calcArea();
+        }
+        return result;
+    }
+
+    public static void reflectAllShapes(Shape[] shapes) {
+        for (Shape shape : shapes) {
+            System.out.println(shape);
+        }
+    }
+}

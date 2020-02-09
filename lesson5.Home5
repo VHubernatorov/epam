@@ -1,0 +1,54 @@
+package com.epam.lesson5;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Home5 {
+    public static void main(String[] args) {
+        System.out.println("Please enter length of array");
+        Scanner sc = new Scanner(System.in);
+        int length = sc.nextInt();
+        System.out.println("Inner array");
+        int[] arrayF = arrayFill(length);
+        int[] result = extremum(arrayF);
+        System.out.println("Min of array -->> " + result[0]);
+        System.out.println("Max of array -->> " + result[result.length-1]);
+        System.out.println("Result Array");
+        System.out.println(Arrays.toString(result));
+    }
+
+    private static int[] extremum(int[] arrayF) {
+        Arrays.sort(arrayF);
+        while (minDubFlag(arrayF)){
+            arrayF = Arrays.copyOfRange(arrayF, 1, arrayF.length);
+        }
+        while(maxDubFlag(arrayF)){
+            arrayF = Arrays.copyOfRange(arrayF, 0, arrayF.length - 1);
+        }
+        return arrayF;
+    }
+    private static boolean minDubFlag(int[] arr){
+        boolean flag = false;
+        if (arr[0] == arr[1]) {
+            flag = true;
+        }
+        return flag;
+    }
+
+    private static boolean maxDubFlag(int[] arr){
+        boolean flag = false;
+        if (arr[arr.length - 1] == arr[arr.length - 2]) {
+            flag = true;
+        }
+        return flag;
+    }
+
+    private static int[] arrayFill(int length) {
+        int[] result = new int[length];
+        for (int i = 0; i < length; i++) {
+            result[i] = (int)(Math.random() * 100);
+        }
+        System.out.println(Arrays.toString(result));
+        return result;
+    }
+}
