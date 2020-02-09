@@ -11,6 +11,7 @@ public class Main {
                           new Circle("yellow", 4),
                           new Circle("pink", 3),
                           new Circle("brawn", 5)};
+        System.out.println("All shapes");
         reflectAllShapes(shapes);
         double square = allSquare(shapes);
         System.out.println("Area of all shapes are - >> " + square);
