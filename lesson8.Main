@@ -1,0 +1,39 @@
+package com.epam.lesson8;
+
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+       Book book = new Book(5, "Mithery", "King", "PG", 1966, 300, 5000);
+        try {
+            book.setId(50);
+        } catch (Validator validator) {
+            validator.printStackTrace();
+        }
+        try {
+            book.setName("25");
+        } catch (Validator validator) {
+            validator.printStackTrace();
+        }
+        Books books = new Books();
+        System.out.println("All books in library");
+        books.allBooks();
+        try {
+            books.addBook(book);
+        } catch (Validator validator) {
+            validator.printStackTrace();
+        }
+        System.out.println("Books after adding new one");
+        books.allBooks();
+        System.out.println("Using Comparathor by Author");
+        Books books1 = books;
+        Arrays.sort(new Books[]{books1}, new CompareByAuthor());
+        books1.allBooks();
+        System.out.println("Using Comparator by Publishing");
+        Arrays.sort(new Books[]{books1}, new CompareByPublisher());
+        books1.allBooks();
+    }
+
+
+
+}
