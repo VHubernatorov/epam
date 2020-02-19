@@ -1,0 +1,114 @@
+package com.epam.lesson8;
+
+public class Book {
+    private int id;
+    private String name;
+    private String author;
+    private String publishing;
+    private int year;
+    private int pages;
+    private int price;
+
+
+    public Book(int id, String name, String author, String publishing, int year, int pages, int price) {
+        this.id = id;
+        this.name = name;
+        this.author = author;
+        this.publishing = publishing;
+        this.year = year;
+        this.pages = pages;
+        this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return this.getClass().getSimpleName() +
+                ", id= " + id +
+                ", name= " + name +
+                ", author= " + author +
+                ", publishing= " + publishing +
+                ", year= " + year +
+                ", pages= " + pages +
+                ", price= " + price;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+        public void setId ( int id) throws Validator{
+        if (id < 0 || id > 20) {
+            throw new Validator();
+        }
+            this.id = id;
+    }
+
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) throws Validator {
+        if (name.isEmpty() || name.matches("-?\\d+(\\.\\d+)?")) {
+            throw new Validator();
+        }
+        this.name = name;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) throws Validator{
+        if (author.isEmpty() || author.matches("-?\\d+(\\.\\d+)?")) {
+            throw new Validator();
+        }
+        this.author = author;
+    }
+
+    public String getPublishing() {
+        return publishing;
+    }
+
+    public void setPublishing(String publishing) throws Validator {
+        if (publishing.isEmpty() || publishing.matches("-?\\d+(\\.\\d+)?")) {
+            throw new Validator();
+        }
+        this.publishing = publishing;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) throws Validator {
+        if (year < 0 || year > 2020) {
+            throw new Validator();
+        }
+        this.year = year;
+    }
+
+    public int getPages() {
+        return pages;
+    }
+
+    public void setPages(int pages) throws Validator{
+        if (pages < 0) {
+            throw new Validator();
+        }
+        this.pages = pages;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) throws Validator{
+        if (price < 0 || price > 99999) {
+            throw new Validator();
+        }
+        this.price = price;
+    }
+
+
+}
