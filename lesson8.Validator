@@ -1,0 +1,14 @@
+package com.epam.lesson8;
+
+public class Validator extends Exception {
+
+    @Override
+    public String getMessage() {
+        return "Un correct value";
+    }
+
+    @Override
+    public void printStackTrace() {
+        System.err.println("Un correct value");
+    }
+}
