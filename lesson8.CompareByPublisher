@@ -1,0 +1,14 @@
+package com.epam.lesson8;
+
+import java.util.Comparator;
+
+public class CompareByPublisher implements Comparator {
+
+
+    @Override
+    public int compare(Object o, Object t1) {
+        String pub1 = ((Book) o).getPublishing();
+        String pub2 = ((Book) t1).getPublishing();
+        return pub1.compareTo(pub2);
+    }
+}
