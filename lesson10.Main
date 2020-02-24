@@ -1,0 +1,15 @@
+package com.epam.lesson10;
+
+import java.io.IOException;
+
+public class Main {
+    public static void main(String[] args) throws IOException, Validator {
+        Books books = new Books();
+        books.printBooks();
+        Book book = new Book(5, "Doom","Fantasy", "SDS", 2020, 124, 500);
+        books.addBook(book);
+        books.printBooks();
+        books.saveBooksToFile();
+
+    }
+}
