@@ -1,0 +1,114 @@
+package com.epam.lesson10;
+
+
+import java.io.*;
+
+public class Books {
+    private int arrayRange;
+    Book[] books;
+
+    public Books() throws IOException, Validator {
+        books = allBooks();
+    }
+
+    public Book[] setArrayRange(int arrayRange) {
+        Book[] books = new Book[arrayRange];
+        return books;
+    }
+
+    ;
+
+    public int getArrayRange() {
+        return books.length;
+    }
+
+    public Book[] addBook(Book book) throws Validator {
+        Book[] books1 = new Book[books.length + 1];
+        System.arraycopy(books, 0, books1, 0, books1.length - 1);
+//        book.setId(books[books.length - 1].getId() + 1);
+        books1[books1.length - 1] = book;
+        books = books1;
+        return books;
+    }
+
+    public Book[] allBooks() throws IOException, Validator {
+        Book book;
+        String st;
+        int indexAr = 0;
+        BufferedReader brIndex = new BufferedReader(new FileReader("G:\\Books.txt"));
+        while ((brIndex.readLine()) != null) {
+            indexAr++;
+        }
+        Book[] bookss = new Book[indexAr];
+        try (BufferedReader br = new BufferedReader(new FileReader("G:\\Books.txt"))) {
+            String str;
+            int id;
+            String name;
+            String author;
+            String publishing;
+            int year;
+            int pages;
+            int price;
+            int index = 0;
+
+            while ((str = br.readLine()) != null) {
+                String[] tmp = str.split(",");
+                id = Integer.parseInt(tmp[0].trim());
+                name = tmp[1].trim();
+                author = tmp[2].trim();
+                publishing = tmp[3].trim();
+                year = Integer.parseInt(tmp[4].trim());
+                pages = Integer.parseInt(tmp[5].trim());
+                price = Integer.parseInt(tmp[6].trim());
+                book = new Book(id, name, author, publishing, year, pages, price);
+                bookss[index++] = book;
+            }
+            books = bookss;
+            return books;
+
+        }
+    }
+
+    public void printBooks() {
+        for (Book book : books) {
+            System.out.println(book);
+        }
+    }
+
+
+    public Book[] setPercentPrice(int persent) {
+        for (int i = 0; i < books.length; i++) {
+            try {
+                books[i].setPrice(books[i].getPrice() + books[i].getPrice() * persent / 100);
+            } catch (Validator validator) {
+                validator.printStackTrace();
+            }
+        }
+        return books;
+    }
+
+    public void booksAfterYear(int year) {
+        for (int i = 0; i < books.length; i++) {
+            if (books[i].getYear() > year) {
+                books[i].toString();
+            }
+        }
+    }
+
+    public void saveBooksToFile() throws IOException {
+
+
+        File file = new File("G:\\Books.txt");
+        if (!file.exists()){
+            file.createNewFile();
+        }
+        PrintWriter pw = new PrintWriter(file);
+        for (int i = 0; i < books.length; i++) {
+            pw.println(books[i].getId() + ", " + books[i].getName() + ", " + books[i].getAuthor() + ", " + books[i].getPublishing() +
+                    ", " + books[i].getYear() + ", " + books[i].getPages() + ", " + books[i].getPrice());
+        }
+        pw.close();
+
+    }
+}
+
