@@ -1,0 +1,45 @@
+package com.lipsum;
+
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+public class TemperatureTesting {
+
+    TemperatureConverter temper;
+    @Before
+        public void addBefore() {
+        temper  = new TemperatureConverter();
+    }
+    @Test()
+    public void testConvertFtoC() {
+        double result = temper.convertFtoC(41);
+        Assert.assertEquals(5, result, 0.001);
+    }
+    @Test
+    public void testConvertCtoF() {
+        double result = temper.convertCtoF( 25);
+        Assert.assertEquals(77, result, 0.001);
+    }
+    @Test
+    public void testConvertCtoK() {
+        double result = temper.convertCtoK(20);
+        Assert.assertEquals(293.2, result, 0.001);
+    }
+    @Test
+    public void testConvertKtoC() {
+        double result = temper.convertKtoC(310);
+        Assert.assertEquals(36.8, result, 0.001);
+    }
+    @Test
+    public void testConvertFtoK() {
+        double result = temper.convertFtoK(-9.7);
+        Assert.assertEquals(250, result, 0.001);
+    }
+    @Test
+    public void testConvertKtoF() {
+        double result = temper.convertKtoF(250);
+        Assert.assertEquals(-9.7, result, 0.001);
+    }
+}
